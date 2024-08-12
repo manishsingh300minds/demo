@@ -6,17 +6,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14, 16, 18]  # Test across multiple Node.js versions
-
     steps:
       - uses: actions/checkout@v3  # Checkout the repository
       
       - name: Set up Node.js
         uses: actions/setup-node@v3  # Set up Node.js
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
           cache: 'npm'  # Cache dependencies automatically
 
       - name: Install dependencies
